@@ -1,0 +1,19 @@
+{
+  "apps" : [{
+    "name": "kshallow",
+    "script": "app.js",
+    "watch": true,
+    "watch": ["config", "api"],
+    "watch_options": {
+      "usePolling": true,
+      "interval": 1000,
+      "useFsEvents": false
+    },
+    "env": {
+      "NODE_ENV": "development",
+    },
+    "env_production" : {
+       "NODE_ENV": "production"
+    }
+  }]
+}

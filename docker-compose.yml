@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./dockerize/api/Dockerfile
+    environment:
+      - DOCKER_MACHINE_IP=192.168.99.100
+    volumes:
+      - ./src:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    ports:
+      - "1337:1337"
+      - "35729:35729"
+      - "3123:3123"
+    command: pm2 start kshallow.json --no-daemon
+
+volumes:
+  node_modules:
